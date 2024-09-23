@@ -20,13 +20,17 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // Fetch the Admin user from the database by username
         Admin admin = adminRepository.findByUsername(username);
         if (admin == null) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("User not found: " + username);
         }
-        return User.withUsername(admin.getUsername())
+
+        // Create and return a UserDetails object
+        return User.builder()
+                .username(admin.getUsername())
                 .password(admin.getPassword())
-                .roles(admin.getRole())
+                .roles(admin.getRole()) // Ensure this is a string array
                 .build();
     }
 }
