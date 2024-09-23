@@ -4,7 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.training.Building_app.model.Admin;
@@ -17,10 +16,10 @@ public class InvestAppApplication {
         SpringApplication.run(InvestAppApplication.class, args);
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // Define PasswordEncoder bean
-    }
+	/*
+	 * @Bean public PasswordEncoder passwordEncoder() { return new
+	 * BCryptPasswordEncoder(); // Define PasswordEncoder bean }
+	 */
 
     @Bean
     public CommandLineRunner commandLineRunner(AdminRepository adminRepository, PasswordEncoder passwordEncoder) {

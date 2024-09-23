@@ -1,6 +1,8 @@
 spring:
   application:
     name: Invest_app
+    main:
+     allow-bean-definition-overriding: true
     
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
