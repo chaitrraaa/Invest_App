@@ -3,6 +3,22 @@ spring:
     name: Invest_app
     main:
      allow-bean-definition-overriding: true
+     
+     mail:
+      host: smtp.gmail.com
+      port: 587
+      username: chaitrams2905@gmail.com
+      password: Chaitra@2912
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    default-encoding: UTF-8
     
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
